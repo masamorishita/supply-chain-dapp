@@ -1,4 +1,4 @@
-pragma solidity ^0.4.24;
+pragma solidity ^v0.5.0;
 
 /// Provides basic authorization control
 contract Ownable {
