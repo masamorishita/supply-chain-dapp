@@ -174,9 +174,9 @@ contract SupplyChain {
   // Define a function 'processtItem' that allows a farmer to mark an item 'Processed'
   function processItem(uint _upc) public 
   // Call modifier to check if upc has passed previous supply chain stage
-  harvested (_upc)
+  harvested(_upc)
   // Call modifier to verify caller of this function
-  verifyCaller (items[_upc].originFarmerID)
+  verifyCaller(items[_upc].originFarmerID)
   {
     // Update the appropriate fields
     items[_upc].itemState = State.Processed;
@@ -187,9 +187,9 @@ contract SupplyChain {
   // Define a function 'packItem' that allows a farmer to mark an item 'Packed'
   function packItem(uint _upc) public 
   // Call modifier to check if upc has passed previous supply chain stage
-  processed (_upc)
+  processed(_upc)
   // Call modifier to verify caller of this function
-  verifyCaller (items[_upc].originFarmerID)
+  verifyCaller(items[_upc].originFarmerID)
   {
     // Update the appropriate fields
     items[_upc].itemState = State.Packed;
@@ -200,9 +200,9 @@ contract SupplyChain {
   // Define a function 'sellItem' that allows a farmer to mark an item 'ForSale'
   function sellItem(uint _upc, uint _price) public 
   // Call modifier to check if upc has passed previous supply chain stage
-  packed (_upc)
+  packed(_upc)
   // Call modifier to verify caller of this function
-  verifyCaller (items[_upc].originFarmerID)
+  verifyCaller(items[_upc].originFarmerID)
   {
     // Update the appropriate fields
     items[_upc].itemState = State.ForSale;
