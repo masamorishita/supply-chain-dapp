@@ -5,6 +5,7 @@ import "./Roles.sol";
 
 // Define a contract 'RetailerRole' to manage this role - add, remove, check
 contract RetailerRole {
+  using Roles for Roles.Role;
 
   // Define 2 events, one for Adding, and other for Removing
   event RetailerAdded(address indexed account);
@@ -26,7 +27,7 @@ contract RetailerRole {
 
   // Define a function 'isRetailer' to check this role
   function isRetailer(address account) public view returns (bool) {
-    return retailer.has(account);
+    return retailers.has(account);
   }
 
   // Define a function 'addRetailer' that adds this role
