@@ -1,4 +1,4 @@
-pragma solidity ^v0.5.0;
+pragma solidity ^0.5.0;
 // Define a contract 'Supplychain'
 contract SupplyChain is FarmerRole, DistributorRole, RetailerRole, ConsumerRole {
 
