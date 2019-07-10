@@ -170,6 +170,8 @@ contract SupplyChain is Ownable, FarmerRole, DistributorRole, RetailerRole, Cons
     string memory _productNotes
     ) public {
     // Add the new item as part of Harvest
+    items[_upc].sku = sku;
+    items[_upc].upc = upc;
     items[_upc].itemState = State.Harvested;
     items[_upc].originFarmerID = _originFarmerID;
     items[_upc].originFarmName = _originFarmName;
