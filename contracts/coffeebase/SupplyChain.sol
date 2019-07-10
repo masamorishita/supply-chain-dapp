@@ -338,7 +338,7 @@ contract SupplyChain is Ownable, FarmerRole, DistributorRole, RetailerRole, Cons
   uint    productID,
   string memory productNotes,
   uint    productPrice,
-  uint    itemState,
+  State   itemState,
   address distributorID,
   address retailerID,
   address consumerID
