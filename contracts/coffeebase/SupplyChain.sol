@@ -173,6 +173,7 @@ contract SupplyChain is Ownable, FarmerRole, DistributorRole, RetailerRole, Cons
     items[_upc].sku = sku;
     items[_upc].upc = upc;
     items[_upc].itemState = State.Harvested;
+    items[_upc].ownerID = _originFarmerID;
     items[_upc].originFarmerID = _originFarmerID;
     items[_upc].originFarmName = _originFarmName;
     items[_upc].originFarmInformation = _originFarmInformation;
