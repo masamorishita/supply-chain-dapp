@@ -181,7 +181,7 @@ contract('SupplyChain', function(accounts) {
             eventEmitted = true;
         })
 
-        // Mark an item as Sold by calling function buyItem()
+        // Mark an item as Sold by calling function shipItem()
         await supplyChain.shipItem(upc, {from: distributorID})
 
         // Retrieve the just now saved item from blockchain by calling function fetchItem()
@@ -197,20 +197,26 @@ contract('SupplyChain', function(accounts) {
         const supplyChain = await SupplyChain.deployed()
         
         // Declare and Initialize a variable for event
-        
+        var eventEmitted = false
         
         // Watch the emitted event Received()
-        
+        supplyChain.Received((err, res) => {
+            eventEmitted = true;
+        })
 
-        // Mark an item as Sold by calling function buyItem()
-        
+        // Mark an item as Sold by calling function receiveItem()
+        await supplyChain.receiveItem(upc, {from: retailerID})
 
         // Retrieve the just now saved item from blockchain by calling function fetchItem()
-        
+        const resultBufferOne = await supplyChain.fetchItemBufferOne.call(upc)
+        const resultBufferTwo = await supplyChain.fetchItemBufferTwo.call(upc)        
 
         // Verify the result set
-             
-    })    
+        assert.equal(resultBufferOne[2], retailerID, 'Error: Missing or Invalid ownerID')      
+        assert.equal(resultBufferTwo[5], 6, 'Error: Invalid item State')
+        assert.equal(resultBufferTwo[7], retailerID, 'Error: Missing or Invalid distributorID')
+        assert.equal(eventEmitted, true, 'Invalid event emitted')
+    })
 
     // 8th Test
     it("Testing smart contract function purchaseItem() that allows a consumer to purchase coffee", async() => {
