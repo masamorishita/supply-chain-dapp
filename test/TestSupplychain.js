@@ -159,10 +159,13 @@ contract('SupplyChain', function(accounts) {
         await supplyChain.buyItem(upc, {from: distributorID, value: web3.utils.toWei("1", "ether")})
 
         // Retrieve the just now saved item from blockchain by calling function fetchItem()
+        const resultBufferOne = await supplyChain.fetchItemBufferOne.call(upc)
         const resultBufferTwo = await supplyChain.fetchItemBufferTwo.call(upc)
 
         // Verify the result set
+        assert.equal(resultBufferOne[2], distributorID, 'Error: Missing or Invalid ownerID')      
         assert.equal(resultBufferTwo[5], 4, 'Error: Invalid item State')
+        assert.equal(resultBufferTwo[6], distributorID, 'Error: Missing or Invalid distributorID')
         assert.equal(eventEmitted, true, 'Invalid event emitted')
     })    
 
