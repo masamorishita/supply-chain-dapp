@@ -205,6 +205,7 @@ contract('SupplyChain', function(accounts) {
         })
 
         // Mark an item as Sold by calling function receiveItem()
+        await supplyChain.addRetailer(retailerID)
         await supplyChain.receiveItem(upc, {from: retailerID})
 
         // Retrieve the just now saved item from blockchain by calling function fetchItem()
