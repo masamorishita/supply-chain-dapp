@@ -30,3 +30,17 @@ v5.0.25
 
 ### web3 version
 v1.0.0-beta.37
+
+
+## Diagrams
+### Activity Diagram
+![Activity Diagram](https://user-images.githubusercontent.com/2709242/61362548-57fd1580-a8bd-11e9-9cd2-8d76c228b0e0.png)
+
+### Sequence Diagram
+![Sequence Diagram](https://user-images.githubusercontent.com/2709242/61362555-5b909c80-a8bd-11e9-8822-26429d567795.png)
+
+### State Diagram
+![State Diagram](https://user-images.githubusercontent.com/2709242/61362564-5df2f680-a8bd-11e9-9908-a76e8a00daf8.png)
+
+### Class Diagram
+![Class Diagram](https://user-images.githubusercontent.com/2709242/61362579-664b3180-a8bd-11e9-9ec5-7f93ba6fdf6e.png)
